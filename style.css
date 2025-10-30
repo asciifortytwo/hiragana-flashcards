@@ -33,3 +33,14 @@ body {
         height: 150vw;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: white;
+  }
+
+  .page {
+    border: 2px solid #fff;
+  }
+}

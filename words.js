@@ -22,8 +22,8 @@ function nextword() {
         
         indexed.push(list[w]);
         body.innerHTML = `<h1>${list[w]}</h1>`;
-        window.removeEventListener("click", nextword);
-        window.addEventListener("click", translate);    
+        document.removeEventListener("click", nextword);
+        document.addEventListener("click", translate);    
     }
 
 }
@@ -32,9 +32,8 @@ function translate() {
     const trans = document.createElement("div");
     trans.textContent = translist[w];
     body.appendChild(trans);
-    window.removeEventListener("click", translate);
-    window.addEventListener("click", nextword);
-    t++
+    document.removeEventListener("click", translate);
+    document.addEventListener("click", nextword);
 }
 
-window.addEventListener("click", nextword);
+document.addEventListener("click", nextword);
