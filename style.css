@@ -27,3 +27,9 @@ body {
     height: 50px;
     /* border: 1px solid red; */
 }
+
+@media (max-width: 600px) {
+    body {
+        height: 150vw;
+    }
+}
