@@ -2,13 +2,12 @@ const deck = {
     words : "あ 	い 	う 	え 	お か 	き 	く 	け 	こ さ 	し 	す 	せ 	そ た 	ち 	つ 	て 	と な 	に 	ぬ 	ね 	の は 	ひ 	ふ 	へ 	ほ ま 	み 	む 	め 	も や ゆ よ ら 	り 	る 	れ 	ろ",
     translations : "a i u e o ka ki ku ke ko sa si su se so ta ti tsu te to na ni nu ne no ha hi fu he ho ma mi mu me mo ya yu yo ra ri ru re ro",
 }
-// const words = "あ 	い 	う 	え 	お か 	き 	く 	け 	こ さ 	し 	す 	せ 	そ た 	ち 	つ 	て 	と な 	に 	ぬ 	ね 	の は 	ひ 	ふ 	へ 	ほ ま 	み 	む 	め 	も や ゆ よ ら 	り 	る 	れ 	ろ";
 const list = deck.words.split(' ');
-// const translations = "a i u e o ka ki ku ke ko sa si su se so ta ti tsu te to na ni nu ne no ha hi fu he ho ma mi mu me mo ya yu yo ra ri ru re ro"
 const translist = deck.translations.split(' ');
 const page = document.querySelector(".page");
 const body = document.querySelector(".page > div");
-// words.forEach((word) => body.textContent = word);
+const synth = window.speechSynthesis;
+let phrase;
 let indexed = [];
 let w;
 function nextword() {
@@ -30,8 +29,11 @@ function nextword() {
 
 function translate() {
     const trans = document.createElement("div");
+    phrase = new SpeechSynthesisUtterance(list[w]);
+    phrase.lang = "ja-JP";
     trans.textContent = translist[w];
     body.appendChild(trans);
+    synth.speak(phrase);
     document.removeEventListener("click", translate);
     document.addEventListener("click", nextword);
 }
