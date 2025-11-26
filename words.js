@@ -31,6 +31,7 @@ function translate() {
     const trans = document.createElement("div");
     phrase = new SpeechSynthesisUtterance(list[w]);
     phrase.lang = "ja-JP";
+    phrase.rate = 0.5;
     trans.textContent = translist[w];
     body.appendChild(trans);
     synth.speak(phrase);
